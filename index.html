@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz: Test Your Knowledge!</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <header id="start-screen">
+      <h1>Coding Quiz Challenge</h1>
+      <p>
+        Try to answer all the questions correctly as quickly as possible!
+        Selecting the incorrect answer will result in a time penalty. Your
+        score/time will be recorded at the end of the quiz.
+      </p>
+      <button id="start-btn">Start Quiz</button>
+    </header>
+    <div class="timer">
+      <p>Time: </p>
+    </div>
+    <section class="quiz-box" id="quiz-box">
+      <div id="question-container"></div>
+      <div id="option-container">
+        <ul>
+          <li><button class="option-btn" id="option-1"></button></li>
+          <li><button class="option-btn" id="option-2"></button></li>
+          <li><button class="option-btn" id="option-3"></button></li>
+          <li><button class="option-btn" id="option-4"></button></li>
+        </ul>
+      </div>
+    </section>
+    <script src="./assets/scripts/script.js"></script>
+  </body>
+</html>
