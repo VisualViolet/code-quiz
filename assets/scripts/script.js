@@ -1,6 +1,11 @@
 var questionPosition = 0;
-var correctAnswers = 0;
+var wrongAnswers = 0;
 var highScores = [];
+var score = 0;
+var message = document.querySelector("#message");
+var initialInput = document.querySelector("initials");
+var submitBtn = document.querySelector("#submit");
+var scoreMessage = document.querySelector("score-message");
 
 
 var quizQuestions = [{
@@ -31,10 +36,11 @@ var quizQuestions = [{
 ]
 
 document.getElementById("quiz-box").style.visibility = "hidden";
+document.getElementById("high-scores").style.visibility = "hidden";
 
 document.getElementById("start-btn").addEventListener("click", startQuiz);
 function startQuiz(){
-    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("intro").style.display = "none";
     document.getElementById("quiz-box").style.visibility = "visible";
     displayQuestion();
     btnListener();
@@ -57,11 +63,33 @@ function btnListener(){
 
 function answerSelect(event){
     const buttonClicked = event.target;
-    alert(buttonClicked.textContent);
+    checkAnswer(buttonClicked.textContent, quizQuestions[questionPosition].answer);
     nextQuestion();
 }
 
+function checkAnswer(selectedAnswer, expectedAnswer){
+    if (selectedAnswer != expectedAnswer)
+    {
+        wrongAnswers++
+        score = score -20;
+        message.textContent = "Wrong!";
+    }
+    else{
+        score = score +20;
+        message.textContent = "Correct!";
+    }
+}
+
+
 function nextQuestion(){
     questionPosition++;
-    displayQuestion();
+    if (questionPosition  == 5 )
+    {
+        displayScore();
+    }
+    else
+    {
+        displayQuestion();
+    }
 }
+

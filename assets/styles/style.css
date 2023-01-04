@@ -29,23 +29,44 @@ button:active {
     transform: translateY(4px);
 }
 
-
-.quiz-box {
-    display: flex;
-    flex-direction: column;
-    padding: 100px 0 100px 0;
-}
-
 .quiz-box ul {
     list-style-type: none;
 }
 
-.timer {
+.row {
+    width: 100%;
     display: flex;
-    float: right;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+    margin: 10px;
+}
+
+#timer {
+    text-align: right;
+}
+
+#view-scores {
+    text-align: left;
+}
+
+
+#start-screen {
+    margin: 10px;
 }
 
 #question-container {
     font-size: 30px;
     font-weight: bold;
+}
+
+#message {
+    color: darkgrey;
+    text-decoration: underline;
+    font-size: 20px;
 }

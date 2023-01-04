@@ -8,18 +8,26 @@
     <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
   <body>
-    <header id="start-screen">
-      <h1>Coding Quiz Challenge</h1>
-      <p>
-        Try to answer all the questions correctly as quickly as possible!
-        Selecting the incorrect answer will result in a time penalty. Your
-        score/time will be recorded at the end of the quiz.
-      </p>
-      <button id="start-btn">Start Quiz</button>
-    </header>
-    <div class="timer">
-      <p>Time: </p>
-    </div>
+    <section id="start-screen">
+      <div class="row">
+        <div class="column" id="view-scores">
+          <a href="./scorepage.html">View Highscores</a>
+        </div>
+        <div class="column" id="intro">
+          <h1>Coding Quiz Challenge</h1>
+          <p>
+            Try to answer all the questions correctly as quickly as possible!
+            Selecting the incorrect answer will result in a time penalty. Your
+            score/time will be recorded at the end of the quiz.
+          </p>
+          <br>
+          <button id="start-btn">Start Quiz</button>
+        </div>
+        <div class="column" id="timer">
+          <p>Time:</p>
+        </div>
+      </div>
+    </section>
     <section class="quiz-box" id="quiz-box">
       <div id="question-container"></div>
       <div id="option-container">
@@ -29,7 +37,17 @@
           <li><button class="option-btn" id="option-3"></button></li>
           <li><button class="option-btn" id="option-4"></button></li>
         </ul>
+        <em id="message"></em>
       </div>
+    </section>
+    <section class="highscores" id="high-scores">
+      <h2>All done!</h2>
+      <p id="score-message"></p>
+      <form>
+        <label for="initials">Enter initials:</label>
+        <input type="text" id="initials" name="initials">
+        <input type="submit" value="submit" id="submit">
+      </form>
     </section>
     <script src="./assets/scripts/script.js"></script>
   </body>
