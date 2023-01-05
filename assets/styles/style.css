@@ -4,28 +4,26 @@
 }
 
 body {
-    background-color: seashell;
+    background-color: #efd2cb;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
-    background-color: darkslateblue;
+    background-color: #d65780;
     color: white;
     border-radius: 10px;
-    border: 3px solid darkslateblue;
+    border-color: transparent;
     font-size: 20px;
     width: 150px;
     text-align: center;
 }
 
 button:hover {
-    background-color: darkorchid;
-    border: 3px solid darkorchid;
+    background-color: #ee9480;
 }
 
 button:active {
-    background-color: darkorchid;
     transform: translateY(4px);
 }
 
@@ -51,8 +49,13 @@ button:active {
     text-align: right;
 }
 
-#view-scores {
+#view-scores{
     text-align: left;
+}
+
+#view-scores a {
+    text-decoration: none;
+    font-weight: bold;
 }
 
 
@@ -69,4 +72,15 @@ button:active {
     color: darkgrey;
     text-decoration: underline;
     font-size: 20px;
+}
+
+#submit {
+    background-color: #d65780;
+    color: white;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+#submit:hover {
+    background-color: #ee9480;
 }
