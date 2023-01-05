@@ -49,8 +49,14 @@ button:active {
     text-align: right;
 }
 
+#seconds {
+    display: inline-block;
+    padding: 0;
+}
+
 #view-scores{
     text-align: left;
+
 }
 
 #view-scores a {
