@@ -27,10 +27,6 @@ button:active {
     transform: translateY(4px);
 }
 
-.quiz-box ul {
-    list-style-type: none;
-}
-
 .row {
     width: 100%;
     display: flex;
@@ -45,21 +41,35 @@ button:active {
     margin: 10px;
 }
 
+.score-board-btn {
+    background-color: #d65780;
+    color: white;
+    border-radius: 10px;
+    border-color: transparent;
+    font-size: 20px;
+    width: 200px;
+}
+
+#quiz-box ul {
+    list-style-type: none;
+}
+
 #timer {
     text-align: right;
 }
+
 
 #seconds {
     display: inline-block;
     padding: 0;
 }
 
-#view-scores{
+#view-highscores{
     text-align: left;
 
 }
 
-#view-scores a {
+#view-highscores a {
     text-decoration: none;
     font-weight: bold;
 }
@@ -74,7 +84,7 @@ button:active {
     font-weight: bold;
 }
 
-#message {
+#answer-feedback {
     color: darkgrey;
     text-decoration: underline;
     font-size: 20px;
@@ -89,4 +99,20 @@ button:active {
 
 #submit:hover {
     background-color: #ee9480;
+}
+
+#score-board-list {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#score-board-list li {
+    list-style-type: none;
+    background-color: #ccd7c5;
+}
+
+#score-board-list li:nth-child(odd){
+    background-color: #bbd1ad;
+    border: 1px solid #a9d191;
 }

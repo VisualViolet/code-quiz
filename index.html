@@ -10,7 +10,7 @@
   <body>
     <section id="start-screen">
       <div class="row">
-        <div class="column" id="view-scores">
+        <div class="column" id="view-highscores">
           <a onclick="displayScores()" href="#">View Highscores</a>
         </div>
         <div class="column" id="intro">
@@ -24,12 +24,12 @@
           <button id="start-btn">Start Quiz</button>
         </div>
         <div class="column" id="timer">
-          <b id="time">Time:</b>
+          <b>Time:</b>
           <p id="seconds">75</p>
         </div>
       </div>
     </section>
-    <section class="quiz-box" id="quiz-box">
+    <section id="quiz-box">
       <div id="question-container"></div>
       <div id="option-container">
         <ul>
@@ -38,25 +38,25 @@
           <li><button class="option-btn" id="option-3"></button></li>
           <li><button class="option-btn" id="option-4"></button></li>
         </ul>
-        <em id="message"></em>
+        <em id="answer-feedback"></em>
       </div>
     </section>
-    <section class="highscores" id="high-scores">
+    <section id="highscores">
       <h2>All done!</h2>
       <p id="score-message"></p>
       <form>
         <label for="initials">Enter initials:</label>
         <input type="text" id="initials" name="initials">
       </form>
-      <button id="submit" >Submit</button>
+      <button id="submit">Submit</button>
     </section>
     <section id="score-board" hidden>
       <h1>Highscores</h1>
       <ul id="score-board-list"></ul>
     </section>
     <section id="score-board-btns" hidden>
-      <a href="index.html"><button>Go Back</button></a>
-      <button id="clear-scores-btn">Clear Highscores</button>
+      <a href="index.html"><button class="score-board-btn">Go Back</button></a>
+      <button class="score-board-btn" id="clear-scores-btn">Clear Highscores</button>
     </section>
     <script src="./assets/scripts/script.js"></script>
   </body>

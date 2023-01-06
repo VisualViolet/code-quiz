@@ -3,9 +3,9 @@ var wrongAnswers = 0;
 var highScores = [];
 var score = 0;
 var secondsRemaining = 75;
-var message = document.querySelector("#message");
+var answerFeedback = document.querySelector("#answer-feedback");
 var initialInput = document.querySelector("#initials");
-//var submitBtn = document.getElementById("submit");
+var timerInterval;
 var scoreMessage = document.querySelector("#score-message");
 var scoreBoard = document.getElementById("score-board");
 var clearScoresBtn = document.getElementById("clear-scores-btn");
@@ -42,7 +42,7 @@ var quizQuestions = [{
 ]
 
 document.getElementById("quiz-box").style.visibility = "hidden";
-document.getElementById("high-scores").style.visibility = "hidden";
+document.getElementById("highscores").style.visibility = "hidden";
 
 document.getElementById("start-btn").addEventListener("click", startQuiz);
 document.getElementById("submit").addEventListener("click", saveUserInfo);
@@ -80,13 +80,20 @@ function checkAnswer(selectedAnswer, expectedAnswer){
     if (selectedAnswer != expectedAnswer)
     {
         wrongAnswers++
-        score = score -20;
+        if (score != 0)
+        {
+            score = score -20;
+        }
+        else
+        {
+            score = score;
+        }
         secondsRemaining = secondsRemaining - 15;
-        message.textContent = "Wrong!";
+        answerFeedback.textContent = "Wrong!";
     }
     else{
         score = score +20;
-        message.textContent = "Correct!";
+        answerFeedback.textContent = "Correct!";
     }
 }
 
@@ -96,6 +103,7 @@ function nextQuestion(){
     if (questionPosition  == 5 )
     {
         displayScore();
+        clearInterval(timerInterval);
     }
     else
     {
@@ -105,7 +113,7 @@ function nextQuestion(){
 
 function displayScore(){
     document.getElementById("quiz-box").style.display = "none";
-    document.getElementById("high-scores").style.visibility = "visible";
+    document.getElementById("highscores").style.visibility = "visible";
     scoreMessage.textContent = "You scored " + score + " points!";
 }
 
@@ -154,11 +162,11 @@ function clearScoreBoard(){
 function hideElements(){
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("quiz-box").style.display = "none";
-    document.getElementById("high-scores").style.display = "none";
+    document.getElementById("highscores").style.display = "none";
 }
 
 function setTime() {
-    var timerInterval = setInterval(function() {
+      timerInterval = setInterval(function() {
       secondsRemaining--;
       secondsEl.textContent = secondsRemaining;
   
