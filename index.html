@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
   <body>
+    <!--individual sections into rows and columns for CSS flexbox layout-->
+    <!--start-screen shows introductory content on load-->
     <section id="start-screen">
       <div class="row">
+    <!--link to view highscores at any point during the quiz-->
         <div class="column" id="view-highscores">
           <a onclick="displayScores()" href="#">View Highscores</a>
         </div>
@@ -23,12 +26,14 @@
           <br>
           <button id="start-btn">Start Quiz</button>
         </div>
+      <!--display timer and seconds remaining to user-->
         <div class="column" id="timer">
           <b>Time:</b>
           <p id="seconds">75</p>
         </div>
       </div>
     </section>
+    <!--container for quiz questions and answer buttons-->
     <section id="quiz-box">
       <div id="question-container"></div>
       <div id="option-container">
@@ -41,6 +46,7 @@
         <em id="answer-feedback"></em>
       </div>
     </section>
+    <!--container for highscores section, collects user input-->
     <section id="highscores">
       <h2>All done!</h2>
       <p id="score-message"></p>
@@ -50,6 +56,7 @@
       </form>
       <button id="submit">Submit</button>
     </section>
+    <!--container for scoreboard-->
     <section id="score-board" hidden>
       <h1>Highscores</h1>
       <ul id="score-board-list"></ul>

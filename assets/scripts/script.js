@@ -1,3 +1,4 @@
+//global variables
 var questionPosition = 0;
 var wrongAnswers = 0;
 var highScores = [];
@@ -13,7 +14,7 @@ var scoreBoardList = document.getElementById("score-board-list");
 var timeEl = document.getElementById("time");
 var secondsEl = document.getElementById("seconds");
 
-
+// object array to store quiz questions, answers, and the correct answer
 var quizQuestions = [{
     "question": "Commonly used data types DO NOT include:",
     "options": ["strings", "booleans", "alerts", "numbers"],
@@ -41,12 +42,11 @@ var quizQuestions = [{
 }
 ]
 
+// hides quiz-box and highscore containers until needed later
 document.getElementById("quiz-box").style.visibility = "hidden";
 document.getElementById("highscores").style.visibility = "hidden";
 
-document.getElementById("start-btn").addEventListener("click", startQuiz);
-document.getElementById("submit").addEventListener("click", saveUserInfo);
-
+// hides introduction and displays quiz-box container, runs fuctions to display questions, log answers, and start the timer
 function startQuiz(){
     document.getElementById("intro").style.display = "none";
     document.getElementById("quiz-box").style.visibility = "visible";
@@ -55,6 +55,7 @@ function startQuiz(){
     setTime();
 }
 
+// displays questions by their position in the object array
 function displayQuestion(){
     document.getElementById("question-container").textContent = quizQuestions[questionPosition].question;
     document.getElementById("option-1").textContent = quizQuestions[questionPosition].options[0]
@@ -63,6 +64,7 @@ function displayQuestion(){
     document.getElementById("option-4").textContent = quizQuestions[questionPosition].options[3]
 }
 
+// event listener for quiz question buttons
 function btnListener(){
     var btns = document.querySelectorAll(".option-btn");
     for (i of btns){
@@ -70,16 +72,19 @@ function btnListener(){
     }
 }
 
+// runs check answer function when button is clicked and function to display the next question
 function answerSelect(event){
     const buttonClicked = event.target;
     checkAnswer(buttonClicked.textContent, quizQuestions[questionPosition].answer);
     nextQuestion();
 }
 
+// checks whether an answer is correct with passed parameters and handles score, time, and feedback accordingly 
 function checkAnswer(selectedAnswer, expectedAnswer){
     if (selectedAnswer != expectedAnswer)
     {
         wrongAnswers++
+        // prevents score from entering the negatives if multiple incorrect answers are chosen
         if (score != 0)
         {
             score = score -20;
@@ -97,7 +102,7 @@ function checkAnswer(selectedAnswer, expectedAnswer){
     }
 }
 
-
+// displays next question by incrementing question object array position and displays the score screen/stops timer when all have been answered
 function nextQuestion(){
     questionPosition++;
     if (questionPosition  == 5 )
@@ -111,12 +116,14 @@ function nextQuestion(){
     }
 }
 
+// hides the quiz-box container to display highscores and displays message of points earned
 function displayScore(){
     document.getElementById("quiz-box").style.display = "none";
     document.getElementById("highscores").style.visibility = "visible";
     scoreMessage.textContent = "You scored " + score + " points!";
 }
 
+// adds scores to an object, appends to highScores array, and saves them to local storage
 function saveUserInfo() {
     retrievePreviousScores();
     var userScore = {
@@ -128,6 +135,7 @@ function saveUserInfo() {
     displayScores()
 }
 
+// retrieves in memory previous scores and sets to highScores array
 function retrievePreviousScores(){
     var userScores = JSON.parse(localStorage.getItem("userScore"));
     if (userScores != null && userScores.length > 0) {
@@ -135,6 +143,7 @@ function retrievePreviousScores(){
     }
 }
 
+// hides irrelevant elements and displays the scoreboard
 function displayScores(){
     hideElements();
     scoreBoard.style.display = "block";
@@ -142,6 +151,7 @@ function displayScores(){
     addToScoreBoard();
 }
 
+// adds user score to scoreboard as list elements to scoreboard ul
 function addToScoreBoard(){
     retrievePreviousScores();
     highScores.forEach((item)=>{
@@ -151,6 +161,7 @@ function addToScoreBoard(){
     })
 }
 
+// clears list elements from scoreboard and local storage
 function clearScoreBoard(){
     localStorage.clear();
     var scoreList = document.querySelectorAll('#score-board-list');
@@ -159,12 +170,14 @@ function clearScoreBoard(){
 }
 }
 
+// hides irrelevant elements
 function hideElements(){
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("quiz-box").style.display = "none";
     document.getElementById("highscores").style.display = "none";
 }
 
+// creates a timer and stops/displays the score screen if it reaches 0
 function setTime() {
       timerInterval = setInterval(function() {
       secondsRemaining--;
@@ -178,6 +191,9 @@ function setTime() {
     }, 1000);
   }
 
+// event listeners for buttons
+document.getElementById("start-btn").addEventListener("click", startQuiz);
+document.getElementById("submit").addEventListener("click", saveUserInfo);
 clearScoresBtn.addEventListener("click", clearScoreBoard);
 
 
