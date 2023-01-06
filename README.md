@@ -4,11 +4,11 @@
 
 A code quiz using JavaScript skills learned in the UW Code Camp that saves highscores. Coding concepts such as variables, loops, functions, and objects were combined with JavaScript's event listeners and local storage to create a functioning application that tests your knowledge on JavaScript! Creating this application has helped create a deeper understanding of how Javascript can be used in combination with HTML and CSS to produce interactive and dynamic webpages.
 
-![gif of website functionality](code-quiz-demo.gif)
+![gif of website functionality](https://github.com/VisualViolet/code-quiz/blob/main/assets/images/code-quiz-demo.gif)
 
 ## Installation
 
-No installation necessary! Simply click the link to view and use my deployed application:
+No installation necessary! Simply click the link to view and use my deployed application: https://visualviolet.github.io/code-quiz/
 
 ## Usage
 
